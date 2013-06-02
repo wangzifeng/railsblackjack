@@ -13,6 +13,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem "spork-rails"
 end
 
 group :production do
