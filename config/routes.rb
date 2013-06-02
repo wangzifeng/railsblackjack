@@ -1,4 +1,12 @@
 RailsBlackjack::Application.routes.draw do
+  root :to => 'static_pages#home'
+
+  match '/contact', to: 'static_pages#contact'
+
+  match '/about', to: 'static_pages#about'
+
+  match '/page', to: 'static_pages#page'
+
   get "static_pages/home"
 
   get "static_pages/page"
