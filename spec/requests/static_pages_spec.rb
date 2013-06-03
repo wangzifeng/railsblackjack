@@ -10,9 +10,38 @@ describe "StaticPages" do
 
     it { should have_selector('h1', text: 'Sample App')}
 
-    it { should have_title(full_title(''))} 
+    it { should have_title(full_title(''))}
+
+
+    #Add link test
+    it {
+      click_link 'New Game'
+      should have_selector('h1', text: 'Sample App')
+    }
 
   end
+
+  describe "Test all links of Home Page" do
+
+    before do
+      visit root_path
+    end
+
+
+    it should do
+      click_link 'New Game'
+      page.should have_title(full_title(''))
+    end
+
+    it should do
+      click_link 'Start Over'
+      page.should have_title(full_title('Page'))
+    end
+
+  end
+
+
+
 
   describe "Page" do
     before { visit page_path }
