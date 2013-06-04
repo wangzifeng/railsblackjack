@@ -1,15 +1,5 @@
-<p id="notice"><%= notice %></p>
+<h1>Profile</h1>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<%= @user.name %>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= @controller %>

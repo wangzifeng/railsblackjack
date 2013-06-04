@@ -1,5 +1,12 @@
 RailsBlackjack::Application.routes.draw do
+
+  resources :users
+
+  resources :posts
+
   root :to => 'static_pages#home'
+
+  match '/signup', to: 'users#new'
 
   match '/contact', to: 'static_pages#contact'
 
@@ -15,10 +22,7 @@ RailsBlackjack::Application.routes.draw do
 
   get "/static_pages/contact"
 
-  resources :posts
 
-
-  resources :users
 
 
   # The priority is based upon order of creation:
