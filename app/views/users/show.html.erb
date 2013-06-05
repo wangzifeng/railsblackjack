@@ -1,5 +1,10 @@
+<%= provide(:title, @user.name ) %>
+
 <h1>Profile</h1>
 
-<%= @user.name %>
 
-<%= @controller %>
+<h1><%= @user.name %></h1>
+
+<%= gravatar_for @user, size: 100  %>
+
+

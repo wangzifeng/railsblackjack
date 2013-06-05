@@ -34,6 +34,8 @@ describe User do
   end
 
   describe "When email format is invalid" do
+
+    #regular impression issue should be fixed
     it "should be invalid" do
       address = %w[user@foo,com user_at_foo.org user.foo@goo.]
       address.each do |invalid_email|

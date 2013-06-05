@@ -1,0 +1,12 @@
+<div id="error_explanation" class="alert alert-error">
+  <div class="alert alert-error">
+    The form contains <%= @user.errors.count %> error
+  </div>
+<ul>
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>
+</ul>  
+</div>
