@@ -5,7 +5,14 @@ RailsBlackjack::Application.routes.draw do
 
   resources :posts
 
-  root :to => 'static_pages#home'
+  resources :session, only: [:new, :create, :destory]
+
+
+  root to: 'static_pages#home'
+
+  match 'signin', to: 'session#new'
+
+  match 'signout', to: 'session#destory'
 
   match '/signup', to: 'users#new'
 
