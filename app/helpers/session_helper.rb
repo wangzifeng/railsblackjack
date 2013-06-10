@@ -4,8 +4,6 @@ module SessionHelper
     self.current_user = user
   end
 
-
-
   def current_user=(user)
     @current_user = user
   end
@@ -15,9 +13,7 @@ module SessionHelper
   end
 
   def signed_in?
-    return true if @current_user.nil?
-    #current_user.nil?
-    #TBD
+    !current_user.nil?
   end
 
   def sign_out

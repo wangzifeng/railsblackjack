@@ -7,14 +7,13 @@
     <li><%= link_to "Contact", contact_path %></li>
 
     <% if signed_in? %>
-      <li>Signed in</li>
+      <li><%= link_to "User", user_path(current_user) %></li>
+      <li class="dropdown"><%= link_to "Setting", '#' %></li>
     <% else %>
       <li><%= link_to "Sign In", signin_path %></li>
     <% end %>
     <li><%= link_to "Sign Out", signout_path %></li>
     <li><%= link_to "Sign Up", signup_path %></li>
-    <li><%= current_user.name %></li>
-    <li><%= @user.inspect%></li>
   </ul>
 </div>
 </header>
