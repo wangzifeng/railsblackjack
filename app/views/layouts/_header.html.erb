@@ -1,19 +1,30 @@
-<header>
-<div class="row-fluid">
-  <ul>
-    <li><%= link_to "New Game", root_path %></li>
-    <li><%= link_to "Start Over", page_path %></li>
-    <li><%= link_to "About", about_path %></li>
-    <li><%= link_to "Contact", contact_path %></li>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container"> 
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><%= link_to "New Game", root_path %></li>
+            <li><%= link_to "Start Over", page_path %></li>
+            <li><%= link_to "About", about_path %></li>
+            <li><%= link_to "Contact", contact_path %></li>
+            <li><%= link_to "Sign Up", signup_path %></li>
 
-    <% if signed_in? %>
-      <li><%= link_to "User", user_path(current_user) %></li>
-      <li class="dropdown"><%= link_to "Setting", '#' %></li>
-    <% else %>
-      <li><%= link_to "Sign In", signin_path %></li>
-    <% end %>
-    <li><%= link_to "Sign Out", signout_path %></li>
-    <li><%= link_to "Sign Up", signup_path %></li>
-  </ul>
-</div>
-</header>
+          </ul>
+          <ul class="nav pull-right">
+            <% if signed_in? %>
+              <li><%= link_to "Sign Out", signout_path %></li>
+              <li><%= link_to "User", user_path(current_user) %></li>
+              <li class="dropdown"><%= link_to "Setting", edit_user_path(current_user) %></li>
+
+              
+            <% else %>
+              <li><%= link_to "Sign In", signin_path %></li>
+            <% end %>
+            
+
+          </ul>
+        </div>
+      </div>
+    </div>
+</div> 
+

@@ -51,9 +51,32 @@ describe "Sign Up" do
 
     describe "after saving a user" do
       
-      before { click_button "Create my account" }
-      let(:user) {User.find_by_email("info@wangzifeng")}
-      it { should have_title(user.name)}
+      #before { click_button "Create my account" }
+      
+      #let(:user) { User.create(name: "Frank www", email: "dino@wk.com",
+                          #password: "test", password_confirmation: "test")} 
+
+      #it { should have_title(full_title(user.name))}
     end
     
 end
+
+describe "edit" do
+  let(:user) { User.find_by_email("dino@wk.com")}
+
+  describe "page" do
+      before { visit edit_user_path(user) }
+
+      it {should have_selector('h1', text: "Update your Profile")}
+      it {shoudl have_title(full_title("Edit User"))}
+  end
+
+  describe "with invalid information" do
+      before {click_button "Save Changes"}
+
+      it {should have_content("error")}
+  end
+
+end
+
+

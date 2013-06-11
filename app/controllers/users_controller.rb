@@ -1,10 +1,17 @@
 class UsersController < ApplicationController
 
+  #security measures:
+
+  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :correct_user, only: [:edit, :update]
+  before_filter :admin_user, only: [:destory]
+
   def new
     @user = User.new
   end
 
-  def index   
+  def index
+    @user= User.paginate(page: params[:page])
   end
 
   def show
@@ -22,4 +29,45 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+
+  def edit
+  end
+
+  def destroy 
+    User.find(params[:id]).destroy
+    flash[:sucess] = "User destoryed"
+    redirect_to users_path
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      sign_in @user
+      flash[:sucess] = "Profile Updated!"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
+  private
+
+
+
+    def signed_in_user
+      if !signed_in?
+        store_location
+        redirect_to signin_path, notice: "Please sign in!" 
+      end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to root_path unless current_user?(@user)
+    end
+
+    def admin_user
+      redirect_to root_path unless current_user.admin?
+    end
+
 end

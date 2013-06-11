@@ -14,7 +14,11 @@ RailsBlackjack::Application.routes.draw do
 
   match 'signout', to: 'session#destory'
 
-  match '/signup', to: 'users#new'
+  match 'signup', to: 'users#new'
+
+
+
+
 
   match '/contact', to: 'static_pages#contact'
 
@@ -22,13 +26,13 @@ RailsBlackjack::Application.routes.draw do
 
   match '/page', to: 'static_pages#page'
 
-  get "static_pages/home"
+  #get "static_pages/home"
 
-  get "static_pages/page"
+  #get "static_pages/page"
 
-  get "/static_pages/about"
+  #get "/static_pages/about"
 
-  get "/static_pages/contact"
+  #get "/static_pages/contact"
 
 
 
